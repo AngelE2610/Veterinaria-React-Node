@@ -26,11 +26,18 @@ class Pagina extends Component{
     this.setState({entidades});
   }
   manejarInput=(evento)=>{
-    const {target}=evento;
-    console.log({evento});
+    const {target:{value,name}}=evento;
+    let {objeto}=this.state;
+    objeto={...objeto,[name]:value};
+    this.setState({objeto});
   }
-  crearEntidad(){
-    
+  crearEntidad=async ()=>{
+    const {entidad}=this.props;
+    let {objeto}=this.state;
+    const method='POST';
+    await crearEditarEntidad({entidad,objeto,method})
+    this.cambiarModal();
+    this.listar();
   }
   componentDidMount(){
     this.listar();
@@ -45,7 +52,7 @@ render(){
     </div>
       <Action_Menu titulo='Mascota' cambiarModal={this.cambiarModal}/>
       <Tabla entidades={this.state.entidades}/>
-      {this.state.mostrarModal && <Modal manejarInput={this.manejarInput} cambiarModal={this.cambiarModal}/>}
+      {this.state.mostrarModal && <Modal manejarInput={this.manejarInput} crearEntidad={this.crearEntidad} cambiarModal={this.cambiarModal}/>}
     </div>
       
       )

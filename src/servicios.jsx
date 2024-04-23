@@ -13,7 +13,7 @@ export const listarEntidad=async ({entidad='mascotas'})=>{
 export const crearEditarEntidad=async ({entidad='mascotas',objeto={},method='POST',idObjeto=null})=>{
     try {
         let url=`${api_url}/${entidad}`;
-        if(method=='PUT' && idObjeto){
+        if(method==='PUT' && idObjeto){
             url+=`/${idObjeto}`;
         }
         const respuesta=await fetch(url,{
