@@ -1,0 +1,17 @@
+.caja{
+    max-width: 500px;
+    padding: 20px;
+    border: 2px solid black;
+    margin: auto;
+}
+.caja-footer{
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 2px solid black;
+    text-align: right;
+}
+.caja-body{
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 2px solid black;
+}
