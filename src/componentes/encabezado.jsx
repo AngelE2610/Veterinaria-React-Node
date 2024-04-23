@@ -7,8 +7,8 @@ return (
 <thead className="thead-dark">
       <tr>
         <th scope="col">#</th>
-        {props.columnas.map((columna)=>(
-          <th scope="col">{columna}</th>  
+        {props.columnas.map((columna,index)=>(
+          <th scope="col" key={`${index}`}>{columna}</th>  
         ))
         }
        

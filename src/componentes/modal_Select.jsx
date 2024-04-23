@@ -1,12 +1,12 @@
 import React from 'react'
 
-function ModalSelect({options=[],nombrecampo=''}){
+function ModalSelect({options=[],nombreCampo='',placeHolder,onChange=()=>{}}){
     return (
         <div className="form-group">
-                <label for="selector">{nombrecampo}</label>
-                <select className="form-control" id="selector">
+                <label htmlFor="selector">{placeHolder}</label>
+                <select className="form-control" name={nombreCampo} onChange={onChange} id="selector">
                   {options.map(({valor,etiqueta},index)=>(
-                    <option key={`${nombrecampo}-${index}-${valor}`}>{etiqueta}</option>
+                    <option key={`${placeHolder}-${index}-${valor}`}>{etiqueta}</option>
                   ))}
                 </select>
               </div>

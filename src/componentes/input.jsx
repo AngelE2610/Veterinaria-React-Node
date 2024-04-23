@@ -1,10 +1,10 @@
 import React from 'react'
 
-function Input({tipo='text',nombrecampo}){
+function Input({tipo='text',nombreCampo,placeHolder,onInput=()=>{}}){
     return (
         <div className="col">
-              <label for={nombrecampo}>{nombrecampo}</label>
-              <input type={tipo} className="form-control" id={nombrecampo} placeholder={nombrecampo}/>
+              <label htmlFor={placeHolder}>{placeHolder}</label>
+              <input type={tipo} name={nombreCampo} className="form-control" onInput={onInput} id={placeHolder} placeholder={placeHolder}/>
             </div>
     )
 }

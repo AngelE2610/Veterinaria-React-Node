@@ -10,7 +10,7 @@ return (
             <td>{entidad.propietario}</td>
             <td>{entidad.tipo}</td>
             <td>
-              <div class="btn-group" role="group" aria-label="Basic example">
+              <div className="btn-group" role="group" aria-label="Basic example">
              <BotonAccion tipo='editar' />
              <BotonAccion tipo='eliminar' />
               </div>

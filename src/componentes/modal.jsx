@@ -4,8 +4,8 @@ import ModalSelect from './modal_Select';
 import Input from './input';
 import './css/modal.css'
 
-function Modal({cambiarModal=()=>{}}) {
-    return (<div className="caja" id="Modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+function Modal({cambiarModal=()=>{},manejarInput=()=>{}}) {
+    return (<div className="caja" id="Modal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div className="" role="document">
       <div className="modal-content">
         <ModalHeader cambiarModal={cambiarModal}/>
@@ -13,18 +13,18 @@ function Modal({cambiarModal=()=>{}}) {
           <form id="form">
             <input type="hidden" id="indice"/>
             <div className="form-row">
-            <Input tipo='text' nombrecampo='Nombre' />
-            <Input tipo='text' nombrecampo='Propietario' />
+            <Input tipo='text' onInput={manejarInput} nombreCampo='nombre' placeHolder='Nombre' />
+            <Input tipo='text' onInput={manejarInput} nombreCampo='propietario' placeHolder='Propietario' />
             
             <div className="col">
-              <ModalSelect options={
+              <ModalSelect nombreCampo="tipo" onChange={manejarInput} options={
                 [{valor:'perro',etiqueta:'perro'},
                  {valor:'gato',etiqueta:'gato'},
                  {valor:'pez',etiqueta:'pez'},
                  {valor:'ave',etiqueta:'ave'},
                 {valor:'otro',etiqueta:'otro'}]
               }
-              nombrecampo='Tipo Animal'
+              placeHolder='Tipo Animal'
               />
             </div>
           </div>
